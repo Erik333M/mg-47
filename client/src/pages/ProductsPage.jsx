@@ -1,8 +1,6 @@
-import { ProductVideo } from '../components/common/ProductVideo'
 import armor from '../assets/home/armor.webp'
 import armorLight from '../assets/home/armor_light.webp'
 import heroVest from '../assets/home/hero-vest.webp'
-import mg47ProductVideo from '../assets/product/mg_47_product.mp4'
 
 export function ProductsPage() {
   const keyFeatures = [
@@ -59,11 +57,6 @@ export function ProductsPage() {
         </ul>
       </div>
 
-      <ProductVideo
-        src={mg47ProductVideo}
-        poster={heroVest}
-        title="MG-47 Product Video"
-      />
     </section>
   )
 }
