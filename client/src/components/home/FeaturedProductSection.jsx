@@ -27,7 +27,7 @@ export function FeaturedProductSection({ videoSrc, videoPoster, productImage }) 
         <div className="overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35 backdrop-blur-[1px]">
           <img src={productImage} alt="MG 47 Concealable Body Armor Vest" className="h-auto w-full object-cover" />
         </div>
-        <ProductVideo src={videoSrc} poster={videoPoster} title="MG-47 Product Video" />
+        {videoSrc ? <ProductVideo src={videoSrc} poster={videoPoster} title="MG-47 Product Video" /> : null}
       </div>
     </section>
   )

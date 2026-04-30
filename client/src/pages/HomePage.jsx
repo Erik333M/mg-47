@@ -11,7 +11,6 @@ import fieldOperation from '../assets/home/field-operation.webp'
 import heroVest from '../assets/home/hero-vest.webp'
 import productLine from '../assets/home/product-line.webp'
 import soldier from '../assets/home/soldier.webp'
-import mg47ProductVideo from '../assets/product/mg_47_product.mp4'
 import {
   heroContent,
   productHighlights,
@@ -37,7 +36,6 @@ export function HomePage() {
       </RevealOnScroll>
       <RevealOnScroll delay={0.1}>
         <FeaturedProductSection
-          videoSrc={mg47ProductVideo}
           videoPoster={heroVest}
           productImage={armorLight}
         />
