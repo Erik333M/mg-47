@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+**/node_modules/
+.env
+*.log
+dist/
+client/src/assets/product/mg_47_product.mp4
+mgAssets/Artadranq.mov
+mgAssets/mg_47_product.mp4
