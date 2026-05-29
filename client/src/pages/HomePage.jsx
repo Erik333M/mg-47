@@ -7,9 +7,9 @@ import { ProductionFlow } from '../components/home/ProductionFlow'
 import { ProductShowcase } from '../components/home/ProductShowcase'
 import armor from '../assets/home/armor.webp'
 import armorLight from '../assets/home/armor_light.webp'
-import fieldOperation from '../assets/home/field-operation.webp'
 import heroVest from '../assets/home/hero-vest.webp'
 import productLine from '../assets/home/product-line.webp'
+import siteBackground from '../assets/home/site-bg.png'
 import soldier from '../assets/home/soldier.webp'
 import {
   heroContent,
@@ -27,9 +27,11 @@ export function HomePage() {
 
   return (
     <div className="space-y-8 md:space-y-10">
-      <HeroSection {...heroContent} backgroundImage={fieldOperation} productImage={heroVest} />
+      <HeroSection {...heroContent} backgroundImage={siteBackground} scrollTargetId="home-overview" />
       <RevealOnScroll delay={0.05}>
+        <div id="home-overview" className="scroll-mt-28">
         <MetricsStrip metrics={protectionMetrics} />
+        </div>
       </RevealOnScroll>
       <RevealOnScroll delay={0.08}>
         <ImageCarousel title="Operational Gallery" slides={carouselSlides} />

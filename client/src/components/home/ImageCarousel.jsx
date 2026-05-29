@@ -16,8 +16,8 @@ export function ImageCarousel({ title, slides, intervalMs = 4200 }) {
   return (
     <section className="space-y-4">
       <div className="flex flex-wrap items-end justify-between gap-2 sm:gap-4">
-        <h2 className="text-2xl font-semibold text-stone-100 sm:text-3xl">{title}</h2>
-        <p className="text-[10px] uppercase tracking-[0.2em] text-stone-400 sm:text-xs">Visual Overview</p>
+        <h2 className="text-2xl font-semibold text-[var(--brand-text-strong)] sm:text-3xl">{title}</h2>
+        <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--brand-text-muted)] sm:text-xs">Visual Overview</p>
       </div>
 
       <motion.div
@@ -25,7 +25,7 @@ export function ImageCarousel({ title, slides, intervalMs = 4200 }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="relative h-[260px] overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35 backdrop-blur-[1px] sm:h-[340px] md:h-[500px]"
+        className="relative h-[260px] overflow-hidden rounded-md border border-[var(--brand-surface-border)] bg-[var(--brand-surface)] shadow-[0_24px_60px_rgba(7,10,24,0.24)] backdrop-blur-[1px] sm:h-[340px] md:h-[500px]"
       >
         <AnimatePresence mode="wait">
           <motion.img
@@ -42,8 +42,8 @@ export function ImageCarousel({ title, slides, intervalMs = 4200 }) {
           />
         </AnimatePresence>
 
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-stone-950/90 to-transparent p-3 sm:p-6">
-          <p className="text-xs font-medium text-stone-100 sm:text-sm">{slides[activeIndex].label}</p>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[color:rgba(7,10,24,0.94)] to-transparent p-3 sm:p-6">
+          <p className="text-xs font-medium text-[var(--brand-text-strong)] sm:text-sm">{slides[activeIndex].label}</p>
         </div>
 
         <div className="absolute bottom-4 right-4 flex gap-2">
@@ -55,7 +55,7 @@ export function ImageCarousel({ title, slides, intervalMs = 4200 }) {
               onClick={() => setActiveIndex(index)}
               title={slide.label}
               className={`h-2.5 w-2.5 cursor-pointer rounded-full transition ${
-                activeIndex === index ? 'bg-amber-300' : 'bg-stone-500 hover:bg-stone-300'
+                activeIndex === index ? 'bg-[var(--brand-action)]' : 'bg-[color:rgba(229,235,233,0.36)] hover:bg-[var(--brand-primary)]'
               }`}
             />
           ))}

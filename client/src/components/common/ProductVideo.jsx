@@ -5,8 +5,8 @@ export function ProductVideo({ src, poster, title = 'MG-47 Product Video' }) {
 
   return (
     <section className="space-y-3">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">{title}</p>
-      <div className="relative overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35 backdrop-blur-[1px]">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-text-muted)]">{title}</p>
+      <div className="relative overflow-hidden rounded-md border border-[var(--brand-surface-border)] bg-[var(--brand-surface)] shadow-[0_24px_60px_rgba(7,10,24,0.24)] backdrop-blur-[1px]">
         {!isLoaded && (
           <button
             type="button"
@@ -21,7 +21,7 @@ export function ProductVideo({ src, poster, title = 'MG-47 Product Video' }) {
               decoding="async"
             />
             <span className="absolute inset-0 flex items-center justify-center">
-              <span className="rounded-sm border border-amber-300/60 bg-stone-900/70 px-4 py-2 text-sm font-semibold text-amber-100 transition group-hover:bg-stone-900/80">
+              <span className="rounded-sm border border-[color:rgba(79,87,81,0.52)] bg-[color:rgba(17,26,60,0.82)] px-4 py-2 text-sm font-semibold text-[var(--brand-text-strong)] transition group-hover:bg-[color:rgba(17,26,60,0.94)]">
                 Load Video
               </span>
             </span>
