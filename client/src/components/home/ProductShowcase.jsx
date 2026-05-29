@@ -11,7 +11,7 @@ export function ProductShowcase({ title, description, image, highlights }) {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="overflow-hidden rounded-md border border-[var(--brand-surface-border)] bg-[var(--brand-surface)] shadow-[0_24px_60px_rgba(7,10,24,0.24)] backdrop-blur-[1px]"
+        className="overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35 backdrop-blur-[1px]"
       >
         <img
           src={image}
@@ -21,9 +21,9 @@ export function ProductShowcase({ title, description, image, highlights }) {
       </motion.div>
 
       <div className="space-y-5">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--brand-text-muted)]">Product Family</p>
-        <h2 className="text-2xl font-semibold text-[var(--brand-text-strong)] sm:text-3xl">{title}</h2>
-        <p className="text-sm text-[var(--brand-text)] sm:text-base">{description}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">Product Family</p>
+        <h2 className="text-2xl font-semibold text-stone-100 sm:text-3xl">{title}</h2>
+        <p className="text-sm text-stone-300 sm:text-base">{description}</p>
         <div className="space-y-3">
           {highlights.map((item, index) => (
             <motion.div
@@ -35,10 +35,10 @@ export function ProductShowcase({ title, description, image, highlights }) {
             >
               <Link
                 to={item.to}
-                className="group block cursor-pointer rounded-md border border-[var(--brand-surface-border)] bg-[linear-gradient(180deg,rgba(79,87,81,0.1),rgba(17,26,60,0.18))] p-4 shadow-[0_20px_48px_rgba(7,10,24,0.18)] backdrop-blur-[1px] transition hover:-translate-y-0.5 hover:border-[color:rgba(79,87,81,0.54)] hover:shadow-[0_24px_56px_rgba(17,26,60,0.28)]"
+                className="group block cursor-pointer rounded-sm border border-stone-500/25 bg-stone-900/35 p-4 backdrop-blur-[1px] transition hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-stone-800/35"
               >
-                <h3 className="text-base font-semibold text-[var(--brand-text-strong)] transition group-hover:text-[var(--brand-text-strong)]">{item.title}</h3>
-                <p className="mt-1 text-sm text-[var(--brand-text)]">{item.summary}</p>
+                <h3 className="text-base font-semibold text-stone-100 transition group-hover:text-amber-100">{item.title}</h3>
+                <p className="mt-1 text-sm text-stone-300/90">{item.summary}</p>
               </Link>
             </motion.div>
           ))}

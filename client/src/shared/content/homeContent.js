@@ -1,8 +1,10 @@
 export const heroContent = {
-  eyebrow: 'Protective Systems',
-  title: 'MG-47',
+  eyebrow: 'MG-47 Tactical Armor',
+  title: 'Precision-Built Body Armor for Mission-Critical Operators',
   description:
-    'MILITARY FACTORY',
+    'Designed for mobility, engineered for ballistic resistance, and manufactured for prolonged deployment cycles.',
+  primaryAction: 'Request Product Catalog',
+  secondaryAction: 'Review Protection Levels',
 }
 
 export const protectionMetrics = [
