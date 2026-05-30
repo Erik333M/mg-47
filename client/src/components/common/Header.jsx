@@ -3,25 +3,58 @@ import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 
 const navItems = [
-  { to: '/', label: 'Home' },
-  { to: '/products', label: 'Products' },
-  { to: '/technologies', label: 'Technologies' },
+  { to: '/products', label: 'Product' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ]
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true)
   const location = useLocation()
+  const isHomePage = location.pathname === '/'
 
   useEffect(() => {
     setIsMenuOpen(false)
   }, [location.pathname])
 
+  useEffect(() => {
+    let lastScrollY = window.scrollY
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+
+      if (isMenuOpen) {
+        setIsHeaderVisible(true)
+        lastScrollY = currentScrollY
+        return
+      }
+
+      if (currentScrollY <= 16) {
+        setIsHeaderVisible(true)
+      } else if (currentScrollY > lastScrollY + 8) {
+        setIsHeaderVisible(false)
+      } else if (currentScrollY < lastScrollY - 8) {
+        setIsHeaderVisible(true)
+      }
+
+      lastScrollY = currentScrollY
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isMenuOpen])
+
   return (
-    <header className="sticky top-0 z-40 border-b border-stone-500/30 bg-stone-900/35 backdrop-blur-[2px]">
+    <header
+      className={`${isHomePage ? 'fixed left-0 right-0 top-0' : 'sticky top-0'} z-40 ${isHomePage ? 'border-b border-white/10 bg-stone-950/18' : 'border-b border-stone-500/30 bg-stone-900/35'} backdrop-blur-[2px] transition-transform duration-300 ${
+        isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <p className="text-base font-bold tracking-[0.08em] text-amber-200 sm:text-lg">MG ARMOR</p>
+        <NavLink to="/" aria-label="Go to home page" className="text-base font-bold tracking-[0.08em] text-amber-200 sm:text-lg">
+          MG 47
+        </NavLink>
 
         <nav className="hidden gap-2 text-sm md:flex">
           {navItems.map((item) => (

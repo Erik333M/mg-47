@@ -1,33 +1,82 @@
+import logoHha from '../../../mgAssets/logo-hha.png'
+import logoMod from '../../../mgAssets/logo-mod.jpg'
+import logoPolice from '../../../mgAssets/logo-police.png'
+
 export function AboutPage() {
+  const partners = [
+    {
+      name: 'Defense Integrators',
+      description: 'Joint execution on protective system deployment, field adaptation, and program delivery.',
+    },
+    {
+      name: 'Materials Suppliers',
+      description: 'Stable sourcing relationships for ballistic-grade inputs and production-critical components.',
+    },
+    {
+      name: 'Research Teams',
+      description: 'Applied collaboration on testing methods, design validation, and performance refinement.',
+    },
+  ]
+
   return (
-    <section className="space-y-6">
-      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-300">About MG-47</p>
-      <h1 className="max-w-4xl text-2xl font-semibold text-stone-100 sm:text-3xl md:text-5xl">
-        Manufacturing Strength, Engineering Discipline, and Long-Term Growth
+    <section className="mx-auto flex max-w-5xl flex-col items-center space-y-10 text-center">
+      <h1 className="max-w-4xl font-semibold text-amber-200">
+        <span className="block text-6xl sm:text-7xl md:text-[6.4rem]">MG 47</span>
+        <span className="block text-[1.35rem] sm:text-[1.9rem] md:text-[2.9rem]">MILITARY FACTORY</span>
       </h1>
-      <div className="max-w-4xl space-y-4 text-sm text-stone-300 sm:text-base">
+      <div className="max-w-4xl text-sm leading-relaxed text-stone-300 sm:text-base">
         <p>
-          MG-47 is presented as a company with strong production-technical, intellectual, and personnel capacity, positioned for stable operations and continuous development.
-        </p>
-        <p>
-          Our internal workflow combines design iteration, materials engineering, controlled assembly, and quality verification to deliver reliable armor systems for high-risk use cases.
+          "MG - 47" LLC has more than 30 years of experience in the development, modeling, design and sewing of military ammunition and equipment, production of bulletproof vests, bags and pouches for military use. Products are manufactured from good quality raw materials on the newest high-tech equipment.
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
-        <article className="rounded-sm border border-stone-500/25 bg-stone-900/35 p-5 backdrop-blur-[1px]">
-          <p className="text-xs uppercase tracking-[0.2em] text-stone-400">Core Focus</p>
-          <p className="mt-2 text-stone-100">Protective systems for military and tactical operations</p>
-        </article>
-        <article className="rounded-sm border border-stone-500/25 bg-stone-900/35 p-5 backdrop-blur-[1px]">
-          <p className="text-xs uppercase tracking-[0.2em] text-stone-400">Execution</p>
-          <p className="mt-2 text-stone-100">Structured production and quality-controlled output</p>
-        </article>
-        <article className="rounded-sm border border-stone-500/25 bg-stone-900/35 p-5 backdrop-blur-[1px]">
-          <p className="text-xs uppercase tracking-[0.2em] text-stone-400">Direction</p>
-          <p className="mt-2 text-stone-100">Sustainable growth through technical capability</p>
-        </article>
-      </div>
+      <section className="flex w-full flex-col items-center space-y-6">
+        <div className="max-w-3xl space-y-3">
+          <h2 className="text-3xl font-semibold text-amber-200 sm:text-4xl">OUR PARTNERS</h2>
+          <p className="text-sm leading-relaxed text-stone-300 sm:text-base">
+            MG47 Military Factory proudly collaborates with the Armed Forces of Armenia, the National Security Service, and the Police of the Republic of Armenia. Through innovation, quality, and professionalism, we support the development of reliable solutions that contribute to national defense, security, and public safety.
+          </p>
+        </div>
+
+        <div className="grid w-full max-w-4xl gap-6 md:grid-cols-3">
+          <div className="flex justify-center">
+            <img
+              src={logoPolice}
+              alt="Police of the Republic of Armenia logo"
+              className="h-28 w-auto object-contain sm:h-32"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div className="flex justify-center">
+            <img
+              src={logoHha}
+              alt="Armed Forces of Armenia logo"
+              className="h-28 w-auto object-contain sm:h-32"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div className="flex justify-center">
+            <img
+              src={logoMod}
+              alt="Ministry of Defense logo"
+              className="h-28 w-auto object-contain sm:h-32"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        <div className="grid w-full gap-4 md:grid-cols-3">
+          {partners.map((partner) => (
+            <article key={partner.name} className="px-4 py-3">
+              <p className="text-sm font-semibold text-stone-100">{partner.name}</p>
+              <p className="mt-3 text-sm leading-6 text-stone-300">{partner.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
     </section>
   )
 }
