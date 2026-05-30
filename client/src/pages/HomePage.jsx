@@ -1,15 +1,12 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { RevealOnScroll } from '../components/common/RevealOnScroll'
-import { ProductVideo } from '../components/common/ProductVideo'
 import { ImageCarousel } from '../components/home/ImageCarousel'
 import armor from '../assets/home/armor.webp'
 import armorLight from '../assets/home/armor_light.webp'
 import soldier from '../assets/home/soldier.webp'
 import heroBg from '../../../mgAssets/hero-bg.png'
 import mg47Logo from '../../../mgAssets/mg-47-logo.jpg'
-import artadranqVideo from '../../../mgAssets/Artadranq.mov'
-import artadranqMp4 from '../../../mgAssets/mg_47_product.mp4'
 
 export function HomePage() {
   const aboutSectionRef = useRef(null)
@@ -107,7 +104,15 @@ export function HomePage() {
         <section className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 sm:px-6">
           <h2 className="text-2xl font-semibold text-stone-100 sm:text-3xl md:text-4xl">PRODUCT</h2>
 
-          <ProductVideo sources={[artadranqMp4, artadranqVideo]} poster={mg47Logo} title="Artadranq Video" />
+          <div className="overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35">
+            <img
+              src={mg47Logo}
+              alt="MG-47 product presentation"
+              className="h-auto w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
 
           <p className="max-w-4xl text-sm leading-relaxed text-stone-300 sm:text-base">
             MG-47 products are designed for military use with attention to durability, reliable materials,

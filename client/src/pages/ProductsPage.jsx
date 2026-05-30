@@ -1,34 +1,34 @@
-import armor from '../assets/home/armor.webp'
-import armorLight from '../assets/home/armor_light.webp'
-import heroVest from '../assets/home/hero-vest.webp'
+import mg47Logo from '../../../mgAssets/mg-47-logo.jpg'
+import armor1 from '../../../mgAssets/armor-1.png'
+import armor2 from '../../../mgAssets/armor-2.png'
+import armor4 from '../../../mgAssets/armor-4.png'
+import armor5 from '../../../mgAssets/armor-5.png'
+import armor6 from '../../../mgAssets/armor-6.png'
 
 export function ProductsPage() {
-  const keyFeatures = [
-    'Concealable low-profile design',
-    'Front and back ballistic protection',
-    'Comfortable ergonomic fit',
-    'Adjustable shoulder and waist closure',
-    'Flexible construction for better mobility',
-    'Suitable for extended daily wear',
+  const armorCards = [
+    { src: armor1, alt: 'MG-47 armor model 1' },
+    { src: armor2, alt: 'MG-47 armor model 2' },
+    { src: armor4, alt: 'MG-47 armor model 3' },
+    { src: armor4, alt: 'MG-47 armor model 4' },
+    { src: armor5, alt: 'MG-47 armor model 5' },
+    { src: armor6, alt: 'MG-47 armor model 6' },
   ]
 
   return (
     <section className="space-y-8">
-      <div className="space-y-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-300">Product Details</p>
-        <h1 className="text-2xl font-semibold text-stone-100 sm:text-3xl md:text-5xl">MG 47 Concealable Body Armor Vest</h1>
+      <div className="space-y-2">
+        <h1 className="text-2xl font-semibold uppercase text-stone-100 sm:text-3xl md:text-5xl">MG 47 Product Details</h1>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
-        <article className="overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35 backdrop-blur-[1px]">
-          <img src={heroVest} alt="MG 47 concealable body armor vest" className="h-full w-full object-cover" />
-        </article>
-        <article className="overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35 backdrop-blur-[1px]">
-          <img src={armorLight} alt="MG 47 lightweight vest configuration" className="h-full w-full object-cover" />
-        </article>
-        <article className="overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35 backdrop-blur-[1px]">
-          <img src={armor} alt="MG 47 armor configuration" className="h-full w-full object-cover" />
-        </article>
+      <div className="overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35">
+        <img
+          src={mg47Logo}
+          alt="MG-47 product presentation"
+          className="h-auto w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
 
       <div className="space-y-4 text-sm text-stone-300 sm:text-base">
@@ -43,20 +43,18 @@ export function ProductsPage() {
         </p>
       </div>
 
-      <div className="space-y-3">
-        <h2 className="text-xl font-semibold text-stone-100 sm:text-2xl">Key Features</h2>
-        <ul className="grid gap-3 md:grid-cols-2">
-          {keyFeatures.map((feature) => (
-            <li
-              key={feature}
-              className="rounded-sm border border-stone-500/25 bg-stone-900/35 px-4 py-3 text-stone-200 backdrop-blur-[1px]"
+      <section className="space-y-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {armorCards.map((card, index) => (
+            <article
+              key={`${card.alt}-${index}`}
+              className="mx-auto aspect-[4/5] w-full max-w-[240px] overflow-hidden rounded-sm bg-stone-900/35 shadow-[0_16px_40px_rgba(7,10,24,0.18)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_56px_rgba(251,191,36,0.22)]"
             >
-              {feature}
-            </li>
+              <img src={card.src} alt={card.alt} className="h-full w-full object-cover" />
+            </article>
           ))}
-        </ul>
-      </div>
-
+        </div>
+      </section>
     </section>
   )
 }
