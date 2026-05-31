@@ -13,6 +13,17 @@ body,
   min-height: 100%;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Manrope', sans-serif;

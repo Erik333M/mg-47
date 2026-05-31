@@ -1,18 +1,20 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-
-const navItems = [
-  { to: '/products', label: 'Product' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
-]
+import mg47Logo from '../../../../mgAssets/mg-47-logo.png'
+import { useLanguage } from '../../shared/i18n/LanguageContext'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHeaderVisible, setIsHeaderVisible] = useState(true)
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+  const { language, setLanguage, t } = useLanguage()
+  const navItems = [
+    { to: '/products', label: t.nav.products },
+    { to: '/about', label: t.nav.about },
+    { to: '/contact', label: t.nav.contact },
+  ]
 
   useEffect(() => {
     setIsMenuOpen(false)
@@ -52,27 +54,47 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <NavLink to="/" aria-label="Go to home page" className="text-base font-bold tracking-[0.08em] text-amber-200 sm:text-lg">
-          MG 47
+        <NavLink to="/" aria-label="Go to home page" className="inline-flex items-center">
+          <img
+            src={mg47Logo}
+            alt="MG-47 logo"
+            className="h-10 w-auto max-w-[11.5rem] object-contain sm:h-11 sm:max-w-[12.5rem]"
+            loading="eager"
+            decoding="async"
+          />
         </NavLink>
 
-        <nav className="hidden gap-2 text-sm md:flex">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) =>
-                `cursor-pointer rounded px-3 py-2 transition ${
-                  isActive
-                    ? 'bg-amber-300 text-stone-900'
-                    : 'text-stone-200 hover:bg-stone-700/55 hover:text-stone-50'
-                }`
-              }
+        <div className="hidden items-center gap-3 md:flex">
+          <nav className="flex gap-2 text-sm">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) =>
+                  `cursor-pointer rounded px-3 py-2 transition ${
+                    isActive
+                      ? 'bg-amber-300 text-stone-900'
+                      : 'text-stone-200 hover:bg-stone-700/55 hover:text-stone-50'
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
+
+          <label className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-stone-300">
+            <span>{t.language.label}</span>
+            <select
+              value={language}
+              onChange={(event) => setLanguage(event.target.value)}
+              className="rounded-sm border border-stone-500/40 bg-stone-950/70 px-2 py-2 text-xs font-medium tracking-normal text-stone-100 outline-none transition hover:border-amber-200/50"
             >
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
+              <option value="en">{t.language.english}</option>
+              <option value="ru">{t.language.russian}</option>
+            </select>
+          </label>
+        </div>
 
         <button
           type="button"
@@ -111,7 +133,7 @@ export function Header() {
             />
 
             <motion.nav
-              className="absolute left-0 right-0 top-full z-40 border-b border-stone-500/30 bg-stone-950/95 p-3 backdrop-blur-xl md:hidden"
+              className="absolute left-0 right-0 top-full z-40 max-h-[calc(100svh-4.5rem)] overflow-y-auto border-b border-stone-500/30 bg-stone-950/95 p-3 backdrop-blur-xl md:hidden"
               initial={{ opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
@@ -133,6 +155,18 @@ export function Header() {
                     {item.label}
                   </NavLink>
                 ))}
+
+                <label className="mt-2 grid gap-2 rounded-sm border border-stone-500/30 px-3 py-3 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-300">
+                  <span>{t.language.label}</span>
+                  <select
+                    value={language}
+                    onChange={(event) => setLanguage(event.target.value)}
+                    className="rounded-sm border border-stone-500/40 bg-stone-950/70 px-2 py-2 text-sm font-medium tracking-normal text-stone-100 outline-none"
+                  >
+                    <option value="en">{t.language.english}</option>
+                    <option value="ru">{t.language.russian}</option>
+                  </select>
+                </label>
               </div>
             </motion.nav>
           </>
