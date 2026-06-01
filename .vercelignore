@@ -1,9 +1,8 @@
 client/node_modules
 client/dist
-client/public/videos
 server
 mg-47-main-clean
-videos
+/videos
 mgAssets/Artadranq.mov
 mgAssets/mg_47_product.mp4
 client/src/assets/product/mg_47_product.mp4

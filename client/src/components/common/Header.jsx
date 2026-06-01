@@ -84,8 +84,8 @@ export function Header() {
           </nav>
 
           <label className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-stone-300">
-            <span>{t.language.label}</span>
             <select
+              aria-label={t.language.label}
               value={language}
               onChange={(event) => setLanguage(event.target.value)}
               className="rounded-sm border border-stone-500/40 bg-stone-950/70 px-2 py-2 text-xs font-medium tracking-normal text-stone-100 outline-none transition hover:border-amber-200/50"
@@ -157,8 +157,8 @@ export function Header() {
                 ))}
 
                 <label className="mt-2 grid gap-2 rounded-sm border border-stone-500/30 px-3 py-3 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-300">
-                  <span>{t.language.label}</span>
                   <select
+                    aria-label={t.language.label}
                     value={language}
                     onChange={(event) => setLanguage(event.target.value)}
                     className="rounded-sm border border-stone-500/40 bg-stone-950/70 px-2 py-2 text-sm font-medium tracking-normal text-stone-100 outline-none"

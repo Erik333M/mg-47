@@ -7,8 +7,7 @@ dist/
 client/src/assets/product/mg_47_product.mp4
 mgAssets/Artadranq.mov
 mgAssets/mg_47_product.mp4
-client/public/videos/
-videos/
+/videos/
 mg-47-main-clean/
 
 .vercel

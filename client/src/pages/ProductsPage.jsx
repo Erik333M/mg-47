@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import mg47Logo from '../../../mgAssets/mg-47-logo.png'
+import { ProductVideo } from '../components/common/ProductVideo'
 import { getProductCards } from '../shared/content/productCatalog'
 import { useLanguage } from '../shared/i18n/LanguageContext'
 
@@ -16,18 +17,7 @@ export function ProductsPage() {
       </div>
 
       <div className="w-full max-w-3xl">
-        {/*
         <ProductVideo src="/videos/mg_47_product.mp4" poster={mg47Logo} />
-        */}
-        <div className="overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35">
-          <img
-            src={mg47Logo}
-            alt={t.products.imageAlt}
-            className="mx-auto h-auto max-h-[16rem] w-full object-contain sm:max-h-[22rem]"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
       </div>
 
       <div className="space-y-4 text-sm text-stone-300 sm:text-base">

@@ -2,6 +2,7 @@ import logoHha from '../../../mgAssets/logo-hha.png'
 import mg47Logo from '../../../mgAssets/mg-47-logo.png'
 import logoMod from '../../../mgAssets/logo-mod.png'
 import logoPolice from '../../../mgAssets/logo-police.png'
+import { ProductVideo } from '../components/common/ProductVideo'
 import { useLanguage } from '../shared/i18n/LanguageContext'
 
 export function AboutPage() {
@@ -20,18 +21,7 @@ export function AboutPage() {
       </div>
 
       <div className="w-full max-w-2xl sm:max-w-3xl">
-        {/*
         <ProductVideo src="/videos/Artadranq.mov" poster={mg47Logo} />
-        */}
-        <div className="overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35">
-          <img
-            src={mg47Logo}
-            alt="MG-47 video placeholder"
-            className="mx-auto h-auto w-full max-w-[22rem] object-contain sm:max-w-[28rem]"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
       </div>
 
       <section className="flex w-full flex-col items-center space-y-6">
