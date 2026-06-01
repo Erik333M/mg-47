@@ -183,6 +183,20 @@ const translations = {
           title: 'Quick-Release Bulletproof Vest',
           overview:
             'A production-finished protective vest system prepared for demanding field use and long-term reliability.',
+          description: [
+            'Protective class according to GOST R 34286-2017: BR 4',
+            'Soft ballistic insert: BR 1/2',
+            'Quick-release system for fast removal in emergency situations',
+            'Full MOLLE system for attaching tactical pouches and additional equipment',
+            'Adjustable shoulder and side straps for secure and comfortable fitting',
+            'Internal shock-absorption and ventilation system for improved comfort during long-term use',
+            'Cordura 1000D Fabric',
+          ],
+          set: [
+            'Pouch for AK / RPK magazines - 3 pcs',
+            'Double hand-grenade pouch - 1 pc',
+            'Radio pouch - 1 pc',
+          ],
         },
       ],
     },

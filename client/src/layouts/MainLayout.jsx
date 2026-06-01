@@ -11,6 +11,13 @@ function ScrollToTop() {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual'
     }
+
+    const resetScroll = () => window.scrollTo(0, 0)
+
+    resetScroll()
+    window.addEventListener('beforeunload', resetScroll)
+
+    return () => window.removeEventListener('beforeunload', resetScroll)
   }, [])
 
   useLayoutEffect(() => {

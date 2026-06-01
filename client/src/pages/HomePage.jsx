@@ -54,7 +54,7 @@ export function HomePage() {
             <img
               src={mg47Logo}
               alt="MG-47 logo"
-              className="max-h-[24svh] w-auto max-w-[min(68vw,24rem)] rounded-sm object-contain shadow-[0_22px_60px_rgba(0,0,0,0.38)] sm:max-h-[28svh] sm:max-w-[min(50vw,28rem)] md:max-h-[34svh] md:max-w-[min(38vw,32rem)]"
+              className="-translate-y-[50px] max-h-[24svh] w-auto max-w-[min(68vw,24rem)] rounded-sm object-contain shadow-[0_22px_60px_rgba(0,0,0,0.38)] sm:translate-y-0 sm:max-h-[28svh] sm:max-w-[min(50vw,28rem)] md:max-h-[34svh] md:max-w-[min(38vw,32rem)]"
               loading="eager"
               decoding="async"
             />
