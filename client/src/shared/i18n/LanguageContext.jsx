@@ -5,6 +5,7 @@ const STORAGE_KEY = 'mg47-language'
 export const translations = {
   en: {
     nav: {
+      home: 'Home',
       products: 'Product',
       about: 'About',
       contact: 'Contact',
@@ -222,6 +223,7 @@ export const translations = {
   },
   ru: {
     nav: {
+      home: 'Главная',
       products: 'Продукция',
       about: 'О нас',
       contact: 'Контакты',
@@ -291,7 +293,7 @@ export const translations = {
       cards: [
         {
           slug: 'vest-1',
-          title: 'Плитник специального назначения со съемным поясом',
+          title: 'Бронежилет специального назначения со съемным поясом',
           overview:
             'Конфигурируемый тактический носитель для модульного размещения снаряжения, бронезащиты и стабильной эксплуатации в полевых условиях.',
           description: [
@@ -334,7 +336,7 @@ export const translations = {
         },
         {
           slug: 'vest-3',
-          title: 'Бронежилет Tank Top Protection Level',
+          title: 'Бронежилет внутренного ношения',
           overview:
             'Надежная тактическая конфигурация жилета для стабильной полевой носки, сбалансированного распределения нагрузки и устойчивой защиты.',
           description: [

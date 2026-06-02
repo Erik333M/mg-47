@@ -16,6 +16,7 @@ export function Header() {
     { to: '/about', label: t.nav.about },
     { to: '/contact', label: t.nav.contact },
   ]
+  const mobileNavItems = [{ to: '/', label: t.nav.home }, ...navItems]
 
   useEffect(() => {
     setIsMenuOpen(false)
@@ -144,7 +145,7 @@ export function Header() {
               transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="grid gap-2">
-                {navItems.map((item) => (
+                {mobileNavItems.map((item) => (
                   <NavLink
                     key={item.to}
                     to={item.to}
@@ -173,19 +174,6 @@ export function Header() {
                   </select>
                 </label>
 
-                <NavLink
-                  to="/"
-                  aria-label="Go to home page"
-                  className="mt-3 flex justify-center rounded-sm border border-stone-500/20 bg-gradient-to-b from-stone-900 to-stone-950 px-4 py-4"
-                >
-                  <img
-                    src={mg47Logo}
-                    alt="MG-47 logo"
-                    className="h-14 w-auto max-w-[13rem] object-contain"
-                    loading="eager"
-                    decoding="async"
-                  />
-                </NavLink>
               </div>
             </motion.nav>
           </>

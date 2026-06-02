@@ -51,7 +51,7 @@ export function HomePage() {
             />
           </picture>
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,24,0.16),rgba(7,10,24,0.48))]" />
-          <div className="absolute inset-0 flex items-start justify-start px-7 pt-[7.5rem] sm:items-center sm:px-12 sm:py-6 md:px-16">
+          <div className="absolute inset-0 flex items-start justify-center px-7 pt-[7.8125rem] sm:items-center sm:justify-start sm:px-12 sm:py-6 md:px-16">
             <img
               src={mg47Logo}
               alt="MG-47 logo"
