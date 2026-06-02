@@ -207,6 +207,7 @@ const translations = {
         'For commercial communication, product requests, and cooperation discussions, use the official contact channels below.',
       email: 'Email',
       phone: 'Phone',
+      address: 'Address',
       website: 'Official Website: www.mg-47.com',
     },
     technologies: {

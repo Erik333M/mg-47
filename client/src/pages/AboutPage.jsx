@@ -21,7 +21,7 @@ export function AboutPage() {
       </div>
 
       <div className="w-full max-w-2xl sm:max-w-3xl">
-        <ProductVideo src="/videos/Artadranq.mov" poster={mg47Logo} />
+        <ProductVideo src="/videos/Artadranq.mp4" poster={mg47Logo} />
       </div>
 
       <section className="flex w-full flex-col items-center space-y-6">
