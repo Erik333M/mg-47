@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { RevealOnScroll } from '../components/common/RevealOnScroll'
 import { ImageCarousel } from '../components/home/ImageCarousel'
@@ -6,12 +6,13 @@ import armor from '../assets/home/armor.webp'
 import armorLight from '../assets/home/armor_light.webp'
 import heroMain from '../../../mgAssets/hero-main.png'
 import heroMobile from '../../../mgAssets/hero-mobile.png'
-import mg47Logo from '../../../mgAssets/mg-47-logo.png'
 import tec1 from '../../../mgAssets/tec-1.png'
 import tec2 from '../../../mgAssets/tec-2.png'
 import tec3 from '../../../mgAssets/tec-3.png'
 import tec4 from '../../../mgAssets/tec-4.png'
 import { useLanguage } from '../shared/i18n/LanguageContext'
+
+const mg47Logo = '/mg-47-logo.png'
 
 export function HomePage() {
   const aboutSectionRef = useRef(null)
@@ -49,12 +50,12 @@ export function HomePage() {
               decoding="async"
             />
           </picture>
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,24,0.18),rgba(7,10,24,0.42))]" />
-          <div className="absolute inset-0 flex items-center justify-start px-8 py-4 sm:px-12 sm:py-6 md:px-16">
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,24,0.16),rgba(7,10,24,0.48))]" />
+          <div className="absolute inset-0 flex items-start justify-start px-7 pt-[7.5rem] sm:items-center sm:px-12 sm:py-6 md:px-16">
             <img
               src={mg47Logo}
               alt="MG-47 logo"
-              className="-translate-y-[50px] max-h-[24svh] w-auto max-w-[min(68vw,24rem)] rounded-sm object-contain shadow-[0_22px_60px_rgba(0,0,0,0.38)] sm:translate-y-0 sm:max-h-[28svh] sm:max-w-[min(50vw,28rem)] md:max-h-[34svh] md:max-w-[min(38vw,32rem)]"
+              className="max-h-[20svh] w-auto max-w-[min(74vw,18rem)] rounded-sm object-contain shadow-[0_22px_60px_rgba(0,0,0,0.38)] sm:max-h-[28svh] sm:max-w-[min(50vw,28rem)] md:max-h-[34svh] md:max-w-[min(38vw,32rem)]"
               loading="eager"
               decoding="async"
             />

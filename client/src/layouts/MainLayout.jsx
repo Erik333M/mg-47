@@ -1,6 +1,5 @@
-import { useEffect, useLayoutEffect } from 'react'
+﻿import { useEffect, useLayoutEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { Footer } from '../components/common/Footer'
 import { Header } from '../components/common/Header'
 import { LanguageProvider } from '../shared/i18n/LanguageContext'
 
@@ -30,6 +29,7 @@ function ScrollToTop() {
 export function MainLayout() {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+  const isContactPage = location.pathname === '/contact'
 
   return (
     <LanguageProvider>
@@ -40,12 +40,13 @@ export function MainLayout() {
           className={
             isHomePage
               ? 'w-full flex-1'
-              : 'mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6 sm:py-8 md:py-10'
+              : isContactPage
+                ? 'w-full flex-1 pt-24 sm:pt-28'
+                : 'mx-auto w-full max-w-6xl flex-1 px-4 pb-6 pt-24 sm:px-6 sm:pb-8 sm:pt-28 md:pb-10'
           }
         >
           <Outlet />
         </main>
-        <Footer />
       </div>
     </LanguageProvider>
   )

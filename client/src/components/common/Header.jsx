@@ -1,8 +1,9 @@
-import { AnimatePresence, motion } from 'framer-motion'
+﻿import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import mg47Logo from '../../../../mgAssets/mg-47-logo.png'
 import { useLanguage } from '../../shared/i18n/LanguageContext'
+
+const mg47Logo = '/mg-47-logo.png'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -25,6 +26,7 @@ export function Header() {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY
+      const isMobile = window.innerWidth < 768
 
       if (isMenuOpen) {
         setIsHeaderVisible(true)
@@ -32,12 +34,14 @@ export function Header() {
         return
       }
 
-      if (currentScrollY <= 16) {
+      if (currentScrollY <= 24) {
         setIsHeaderVisible(true)
-      } else if (currentScrollY > lastScrollY + 8) {
+      } else if (currentScrollY < lastScrollY) {
+        setIsHeaderVisible(true)
+      } else if (isMobile && currentScrollY > lastScrollY + 4) {
         setIsHeaderVisible(false)
-      } else if (currentScrollY < lastScrollY - 8) {
-        setIsHeaderVisible(true)
+      } else if (!isMobile && currentScrollY > lastScrollY + 8) {
+        setIsHeaderVisible(false)
       }
 
       lastScrollY = currentScrollY
@@ -49,16 +53,16 @@ export function Header() {
 
   return (
     <header
-      className={`${isHomePage ? 'fixed left-0 right-0 top-0' : 'sticky top-0'} z-40 ${isHomePage ? 'border-b border-white/10 bg-stone-950/18' : 'border-b border-stone-500/30 bg-stone-900/35'} backdrop-blur-[2px] transition-transform duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-40 ${isHomePage ? 'border-b border-white/10 bg-stone-950/24' : 'border-b border-stone-500/30 bg-stone-900/45'} backdrop-blur-md transition-transform duration-300 ${
         isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <NavLink to="/" aria-label="Go to home page" className="inline-flex items-center">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+        <NavLink to="/" aria-label="Go to home page" className="ml-2 inline-flex items-center md:ml-0">
           <img
             src={mg47Logo}
             alt="MG-47 logo"
-            className="h-10 w-auto max-w-[11.5rem] object-contain sm:h-11 sm:max-w-[12.5rem]"
+            className="h-12 w-auto max-w-[13rem] object-contain sm:h-[3.35rem] sm:max-w-[14rem]"
             loading="eager"
             decoding="async"
           />
@@ -101,7 +105,7 @@ export function Header() {
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-sm border border-stone-500/40 bg-stone-900/55 text-stone-100 transition hover:border-amber-200/50 hover:text-amber-100 md:hidden"
+          className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-sm border border-stone-500/40 bg-stone-900/65 text-stone-100 transition hover:border-amber-200/50 hover:text-amber-100 md:hidden"
         >
           <span className="sr-only">Toggle menu</span>
           <span className="relative block h-4 w-5">
@@ -125,7 +129,7 @@ export function Header() {
               type="button"
               aria-label="Close menu overlay"
               onClick={() => setIsMenuOpen(false)}
-              className="fixed inset-0 z-30 bg-black/45 md:hidden"
+              className="fixed inset-0 z-30 bg-black/50 md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -133,22 +137,22 @@ export function Header() {
             />
 
             <motion.nav
-              className="absolute left-0 right-0 top-full z-40 max-h-[calc(100svh-4.5rem)] overflow-y-auto border-b border-stone-500/30 bg-stone-950/95 p-3 backdrop-blur-xl md:hidden"
+              className="absolute left-0 right-0 top-full z-40 border-b border-stone-500/30 bg-stone-950/98 px-4 pb-5 pt-3 shadow-[0_24px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl md:hidden"
               initial={{ opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="grid gap-1">
+              <div className="grid gap-2">
                 {navItems.map((item) => (
                   <NavLink
                     key={item.to}
                     to={item.to}
                     className={({ isActive }) =>
-                      `cursor-pointer rounded-sm px-3 py-3 text-sm font-medium transition ${
+                      `cursor-pointer rounded-sm border px-4 py-3 text-sm font-medium transition ${
                         isActive
-                          ? 'bg-amber-300 text-stone-900'
-                          : 'text-stone-100 hover:bg-stone-800 hover:text-amber-100'
+                          ? 'border-amber-200/70 bg-amber-300 text-stone-900'
+                          : 'border-stone-500/20 bg-stone-900/55 text-stone-100 hover:border-amber-200/30 hover:bg-stone-800 hover:text-amber-100'
                       }`
                     }
                   >
@@ -156,17 +160,32 @@ export function Header() {
                   </NavLink>
                 ))}
 
-                <label className="mt-2 grid gap-2 rounded-sm border border-stone-500/30 px-3 py-3 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-300">
+                <label className="mt-2 grid gap-2 rounded-sm border border-stone-500/30 bg-stone-900/55 px-4 py-3 text-left text-xs font-medium uppercase tracking-[0.18em] text-stone-300">
+                  <span>{t.language.label}</span>
                   <select
                     aria-label={t.language.label}
                     value={language}
                     onChange={(event) => setLanguage(event.target.value)}
-                    className="rounded-sm border border-stone-500/40 bg-stone-950/70 px-2 py-2 text-sm font-medium tracking-normal text-stone-100 outline-none"
+                    className="rounded-sm border border-stone-500/40 bg-stone-950/80 px-3 py-2 text-sm font-medium tracking-normal text-stone-100 outline-none"
                   >
                     <option value="en">{t.language.english}</option>
                     <option value="ru">{t.language.russian}</option>
                   </select>
                 </label>
+
+                <NavLink
+                  to="/"
+                  aria-label="Go to home page"
+                  className="mt-3 flex justify-center rounded-sm border border-stone-500/20 bg-gradient-to-b from-stone-900 to-stone-950 px-4 py-4"
+                >
+                  <img
+                    src={mg47Logo}
+                    alt="MG-47 logo"
+                    className="h-14 w-auto max-w-[13rem] object-contain"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </NavLink>
               </div>
             </motion.nav>
           </>

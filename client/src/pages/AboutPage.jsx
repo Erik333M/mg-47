@@ -1,5 +1,6 @@
+﻿import shirtImage from '../../../mgAssets/mg-shirt.png'
+import artadranqIntro from '../../../mgAssets/intro-2.png'
 import logoHha from '../../../mgAssets/logo-hha.png'
-import mg47Logo from '../../../mgAssets/mg-47-logo.png'
 import logoMod from '../../../mgAssets/logo-mod.png'
 import logoPolice from '../../../mgAssets/logo-police.png'
 import { ProductVideo } from '../components/common/ProductVideo'
@@ -10,10 +11,16 @@ export function AboutPage() {
 
   return (
     <section className="mx-auto flex max-w-5xl flex-col items-center space-y-8 px-4 text-center sm:space-y-10 sm:px-6">
-      <h1 className="max-w-4xl font-semibold text-amber-200">
-        <span className="block text-4xl leading-none sm:text-7xl md:text-[6.4rem]">MG 47</span>
-        <span className="mt-2 block text-sm leading-tight sm:text-[1.9rem] md:text-[2.9rem]">{t.about.factory}</span>
-      </h1>
+      <div className="w-full max-w-4xl overflow-hidden rounded-sm border border-stone-500/20 bg-stone-900/35 shadow-[0_24px_60px_rgba(0,0,0,0.22)]">
+        <img
+          src={shirtImage}
+          alt="MG-47 military factory shirt"
+          className="h-auto w-full object-cover"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+
       <div className="max-w-4xl space-y-4 text-sm leading-relaxed text-stone-300 sm:text-base">
         {t.about.intro.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
@@ -21,7 +28,7 @@ export function AboutPage() {
       </div>
 
       <div className="w-full max-w-2xl sm:max-w-3xl">
-        <ProductVideo src="/videos/Artadranq.mp4" poster={mg47Logo} />
+        <ProductVideo src="/videos/Artadranq.mp4" poster={artadranqIntro} />
       </div>
 
       <section className="flex w-full flex-col items-center space-y-6">
@@ -58,14 +65,6 @@ export function AboutPage() {
               decoding="async"
             />
           </div>
-        </div>
-
-        <div className="grid w-full max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
-          {t.about.partnerCards.map((partner) => (
-            <article key={partner.name} className="flex w-full flex-col items-center px-2 py-2 text-center">
-              <p className="text-sm font-semibold text-stone-100">{partner.name}</p>
-            </article>
-          ))}
         </div>
       </section>
     </section>

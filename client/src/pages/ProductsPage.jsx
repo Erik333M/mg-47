@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import mg47Logo from '../../../mgAssets/mg-47-logo.png'
+﻿import { Link } from 'react-router-dom'
+import productIntro from '../../../mgAssets/intro-1.png'
 import { ProductVideo } from '../components/common/ProductVideo'
 import { getProductCards } from '../shared/content/productCatalog'
 import { useLanguage } from '../shared/i18n/LanguageContext'
@@ -17,7 +17,7 @@ export function ProductsPage() {
       </div>
 
       <div className="w-full max-w-3xl">
-        <ProductVideo src="/videos/mg_47_product.mp4" poster={mg47Logo} />
+        <ProductVideo src="/videos/mg_47_product.mp4" poster={productIntro} />
       </div>
 
       <div className="space-y-4 text-sm text-stone-300 sm:text-base">
