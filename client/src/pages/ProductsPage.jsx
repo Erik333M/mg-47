@@ -34,8 +34,12 @@ export function ProductsPage() {
               to={`/products/${card.slug}`}
               className="mx-auto flex h-full w-full max-w-[280px] flex-col overflow-hidden rounded-sm bg-stone-900/35 shadow-[0_16px_40px_rgba(7,10,24,0.18)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_56px_rgba(251,191,36,0.22)] min-[520px]:max-w-none"
             >
-              <div className="aspect-[4/5] overflow-hidden">
-                <img src={card.src} alt={card.title} className="h-full w-full object-cover" />
+              <div className="aspect-[4/5] overflow-hidden bg-stone-950/40">
+                <img
+                  src={card.src}
+                  alt={card.title}
+                  className={`h-full w-full ${card.wide ? 'object-contain' : 'object-cover'}`}
+                />
               </div>
               <div className="border-t border-stone-500/20 px-4 py-4 text-center">
                 <p className="text-sm font-semibold leading-snug break-words text-stone-100">{card.title}</p>

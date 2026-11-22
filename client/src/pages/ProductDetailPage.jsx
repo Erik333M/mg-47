@@ -6,12 +6,14 @@ export function ProductDetailPage() {
   const { slug } = useParams()
   const { t } = useLanguage()
   const product = getProductCards(t).find((card) => card.slug === slug)
-  const imageContainerClass =
-    product?.slug === 'vest-2'
+  const imageContainerClass = product?.wide
+    ? 'mx-auto w-full max-w-2xl overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35'
+    : product?.slug === 'vest-2'
       ? 'mx-auto w-full max-w-md overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35 sm:max-w-lg md:max-w-xl'
       : 'mx-auto w-full max-w-sm overflow-hidden rounded-sm border border-stone-500/25 bg-stone-900/35 sm:max-w-md'
-  const imageClass =
-    product?.slug === 'vest-2'
+  const imageClass = product?.wide
+    ? 'h-auto w-full object-contain'
+    : product?.slug === 'vest-2'
       ? 'h-[26rem] w-full object-cover sm:h-[30rem] md:h-[34rem]'
       : 'h-auto w-full object-contain'
 
@@ -42,7 +44,13 @@ export function ProductDetailPage() {
         {product.title}
       </h1>
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:items-start">
+      <div
+        className={
+          product.wide
+            ? 'grid gap-6 lg:grid-cols-[minmax(0,560px)_minmax(0,1fr)] lg:items-start'
+            : 'grid gap-6 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:items-start'
+        }
+      >
         <div>
           <article className={imageContainerClass}>
             <img
